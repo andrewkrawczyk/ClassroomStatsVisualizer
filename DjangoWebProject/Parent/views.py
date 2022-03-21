@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
 
+# May not need this right now.
 
 def home(request):
     """Renders home page for parents"""

@@ -4,9 +4,9 @@ from django.http import HttpResponse
 from datetime import datetime
 
 # Adding Dependencies to check if Matplotlib works
-from math import radians
-import numpy as np # installed with matplotlib
-import matplotlib.pyplot as plt
+# from math import radians
+# import numpy as np # installed with matplotlib
+# import matplotlib.pyplot as plt
 
 # May not need this right now.
 
@@ -47,9 +47,9 @@ def about(request):
 
 # -------------------------------------------------------------------------------------
 # Test function to make sure Matplotlib works
-def TestMathlibrary():
-    x = np.arange(0, radians(1800), radians(12))
-    plt.plot(x, np.cos(x), 'b')
-    plt.show()
+# def TestMathlibrary():
+#     x = np.arange(0, radians(1800), radians(12))
+#     plt.plot(x, np.cos(x), 'b')
+#     plt.show()
 
-TestMathlibrary();
+# TestMathlibrary();

@@ -5,10 +5,16 @@ Definition of views.
 from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpRequest
+from .models import Student, Dra, Ireadymath, Ireadyreading
+from django.core import serializers
+
 
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
+
+    test_list = serializers.serialize('json', Student.objects.filter(teacher=8861, pk=94526222))
+
     return render(
         request,
         'app/index.html',
@@ -16,6 +22,7 @@ def home(request):
             'title':'Home Page',
             'message':'Your one-stop shop for entering and retreiving student data',
             'year':datetime.now().year,
+            'tlist':test_list,
         }
     )
 

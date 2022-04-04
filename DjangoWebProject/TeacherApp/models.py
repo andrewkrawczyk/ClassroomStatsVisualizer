@@ -39,7 +39,7 @@ class Dra(models.Model):
     class Meta:
         managed = False
         db_table = 'dra'
-        unique_together = (('student', 'entertime'),)
+        unique_together = [['student', 'entertime']]
 
 
 class Ireadymath(models.Model):
@@ -50,7 +50,7 @@ class Ireadymath(models.Model):
     class Meta:
         managed = False
         db_table = 'ireadymath'
-        unique_together = (('student', 'entertime'),)
+        unique_together = [['student', 'entertime']]
 
 
 class Ireadyreading(models.Model):
@@ -61,4 +61,4 @@ class Ireadyreading(models.Model):
     class Meta:
         managed = False
         db_table = 'ireadyreading'
-        unique_together = (('student', 'entertime'),)
+        unique_together = [['student', 'entertime']]

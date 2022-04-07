@@ -1,12 +1,13 @@
 # Required Packages for the virutal environment
 # ==========================================================================
-django~=2.2                 # pip install django==2.2.27
-cx-Oracle~=8.3.0            # python -m pip install cx_Oracle --upgrade
-django-tables2~=2.4.1       # pip install django-tables2==2.4.1
-pandas~=1.4.2               # pip install pandas==1.4.2
-pymysql~=1.0.2              # pip install pymysql==1.0.2
-matplotlib~=3.5.1           # pip install matplotlib==3.5.1
-numpy~=1.22.3               # pip install numpy==1.22.3
+# pip3 install -r requirements.txt
+django~=2.2
+cx-Oracle~=8.3.0
+django-tables2~=2.4.1
+pandas~=1.4.2
+pymysql~=1.0.2
+matplotlib~=3.5.1
+numpy~=1.22.3
 
 # ==========================================================================
 # Virtual Environment Setup using existing venv folder

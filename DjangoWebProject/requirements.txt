@@ -1,3 +1,25 @@
+# Creating new environment for Visual Studio Code
+# ==========================================================================
+# Windows
+# --------------------------------------------------------------------------
+# py -3 -m venv .venv
+# .venv\scripts\activate
+
+# --------------------------------------------------------------------------
+# MacOS
+# --------------------------------------------------------------------------
+# python3 -m venv .venv
+# source .venv/bin/activate
+
+# ==========================================================================
+# Creating new environment for PyCharm
+# ==========================================================================
+# Python interpreter setting -> Cog wheel -> Add -> New
+# Or Bottom right click add interpreter
+# Use the following path
+# Python 3.9 directory
+
+# ==========================================================================
 # Required Packages for the virutal environment
 # ==========================================================================
 # pip3 install -r requirements.txt

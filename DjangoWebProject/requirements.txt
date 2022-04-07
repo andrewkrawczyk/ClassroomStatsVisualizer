@@ -8,6 +8,27 @@ pymysql~=1.0.2              # pip install pymysql==1.0.2
 matplotlib~=3.5.1           # pip install matplotlib==3.5.1
 numpy~=1.22.3               # pip install numpy==1.22.3
 
+# ==========================================================================
+# Virtual Environment Setup using existing venv folder
+# ==========================================================================
+# Instructions for Pycharm
+# --------------------------------------------------------------------------
+# Python interpreter setting -> Cog wheel -> Add -> Existing
+# Or Bottom right click add interpreter
+# Use the following path
+# ~\ClassroomStatsVisualizer\venv\Scripts\python.exe
+
+# --------------------------------------------------------------------------
+# Instruction for Visual Studio Code
+# --------------------------------------------------------------------------
+# Ctrl+Shift+P
+# Pythoh: Select Interpreter
+# Should have recommonded as the following
+# Pythong 3.9.10 ('venv':venv) .\venv\Scripts\python.exe
+# Change the terminal to cmd if you don't want to change user script
+# settings
+
+# ==========================================================================
 # Install Oracle instant client for accessing databese
 # ==========================================================================
 # Instruction for Windows
@@ -24,7 +45,7 @@ numpy~=1.22.3               # pip install numpy==1.22.3
 # C:\oracle\instantclient_xx_x (_xx_x is the version #)
 # Click ok
 
-#  --------------------------------------------------------------------------
+# --------------------------------------------------------------------------
 # Instruction for MacOS
 # --------------------------------------------------------------------------
 # Download the basic package from the following link

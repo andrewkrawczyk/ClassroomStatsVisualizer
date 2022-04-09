@@ -23,6 +23,7 @@
 # Required Packages for the virutal environment
 # ==========================================================================
 # Use the following command to install everything automatically
+# cd .\DjangoWebProject (this step is required for VSCode)
 # pip3 install -r requirements.txt
 django~=2.2
 cx-Oracle~=8.3.0
@@ -34,15 +35,8 @@ numpy~=1.22.3
 
 # ==========================================================================
 # Virtual Environment Setup using existing venv folder
+# Only use if we are uploading the folder to Git
 # ==========================================================================
-# Instructions for Pycharm
-# --------------------------------------------------------------------------
-# Python interpreter setting -> Cog wheel -> Add -> Existing
-# Or Bottom right click add interpreter
-# Use the following path
-# ~\ClassroomStatsVisualizer\venv\Scripts\python.exe
-
-# --------------------------------------------------------------------------
 # Instruction for Visual Studio Code
 # --------------------------------------------------------------------------
 # Ctrl+Shift+P
@@ -51,6 +45,14 @@ numpy~=1.22.3
 # Pythong 3.9.10 ('venv':venv) .\venv\Scripts\python.exe
 # Change the terminal to cmd if you don't want to change user script
 # settings
+
+# --------------------------------------------------------------------------
+# Instructions for Pycharm
+# --------------------------------------------------------------------------
+# Python interpreter setting -> Cog wheel -> Add -> Existing
+# Or Bottom right click add interpreter
+# Use the following path
+# ~\ClassroomStatsVisualizer\venv\Scripts\python.exe
 
 # ==========================================================================
 # Install Oracle instant client for accessing databese
@@ -70,13 +72,20 @@ numpy~=1.22.3
 # Click ok
 
 # --------------------------------------------------------------------------
-# Instruction for MacOS
+# Instruction for MacOS - Method Homebrew
+# --------------------------------------------------------------------------
+# Look up homebrew for terminal usage
+# Use terminal for the following commands
+# brew tap InstantClientTap/instantclient
+# brew install instantclient-basic
+# Place the files from the google drive link in slack to
+# ~/instantclient_xx_x/network/admin (_xx_x is the version #)
+
+# --------------------------------------------------------------------------
+# Instruction for MacOS - Method Oracle Site Instruction
 # --------------------------------------------------------------------------
 # Download the basic package from the following link
 # https://www.oracle.com/database/technologies/instant-client/downloads.html
-# Unzip and place in the following directory
-# MacHDD -> Users -> Current Users
+# Follow the instruction at the bottom for the correct version
 # Place the files from the google drive link in slack to
 # ~/instantclient_xx_x/network/admin (_xx_x is the version #)
-# Use the terminal
-# export PATH=~/instantclient_xx_x:$PATH (_xx_x is the version #)

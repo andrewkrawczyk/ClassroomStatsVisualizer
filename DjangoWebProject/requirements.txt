@@ -83,6 +83,8 @@ numpy~=1.22.3
 
 # --------------------------------------------------------------------------
 # Instruction for MacOS - Method Oracle Site Instruction
+# https://www.oracle.com/database/technologies/appdev/python/quickstartpython.html#second-option-tab
+# https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html
 # --------------------------------------------------------------------------
 # Download the basic package from the following link
 # https://www.oracle.com/database/technologies/instant-client/downloads.html

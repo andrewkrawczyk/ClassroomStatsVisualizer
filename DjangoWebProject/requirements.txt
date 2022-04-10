@@ -57,37 +57,20 @@ numpy~=1.22.3
 # ==========================================================================
 # Install Oracle instant client for accessing databese
 # ==========================================================================
-# Instruction for Windows
+# Instruction for Windows using version 21.3
 # --------------------------------------------------------------------------
 # Download the basic package from the following link
 # https://www.oracle.com/database/technologies/instant-client/downloads.html
 # Unzip and place in the following directory
 # C:\oracle\
 # Place the files from the google drive link in slack to
-# C:\oracle\instantclient_xx_x\network\admin (_xx_x is the version #)
-# Use the search function and type environment variables
-# Click Environment Variables -> Click System variables Path -> Edit -> New
-# Past the following
-# C:\oracle\instantclient_xx_x (_xx_x is the version #)
-# Click ok
+# C:\oracle\instantclient_21_3\network\admin
 
 # --------------------------------------------------------------------------
-# Instruction for MacOS - Method Homebrew
-# --------------------------------------------------------------------------
-# Look up homebrew for terminal usage
-# Use terminal for the following commands
-# brew tap InstantClientTap/instantclient
-# brew install instantclient-basic
-# Place the files from the google drive link in slack to
-# ~/instantclient_xx_x/network/admin (_xx_x is the version #)
-
-# --------------------------------------------------------------------------
-# Instruction for MacOS - Method Oracle Site Instruction
-# https://www.oracle.com/database/technologies/appdev/python/quickstartpython.html#second-option-tab
-# https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html
+# Instruction for MacOS for version 19.8
 # --------------------------------------------------------------------------
 # Download the basic package from the following link
 # https://www.oracle.com/database/technologies/instant-client/downloads.html
 # Follow the instruction at the bottom for the correct version
 # Place the files from the google drive link in slack to
-# ~/instantclient_xx_x/network/admin (_xx_x is the version #)
+# ~/Downloads/instantclient_19_8/network/admin

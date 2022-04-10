@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import posixpath
+import sys
+
+import cx_Oracle
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -78,6 +81,14 @@ TEMPLATES = [
         },
     },
 ]
+
+if sys.platform.startswith('win32'):
+    cx_Oracle.init_oracle_client(lib_dir="/oracle/instantclient_21_3")
+elif sys.platform.startswith('darwin'):
+    cx_Oracle.init_oracle_client(lib_dir="/Users/local/instantclient_19_8")
+else:
+    print("Error with cx-Oracle file location")
+    quit()
 
 WSGI_APPLICATION = 'DjangoWebProject.wsgi.application'
 # Database

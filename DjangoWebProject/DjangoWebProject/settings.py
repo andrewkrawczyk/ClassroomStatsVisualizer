@@ -82,17 +82,17 @@ TEMPLATES = [
 ]
 
 if sys.platform.startswith('win32'):
-    isDir = os.path.isdir("/oracle/instantclient_21_3")
-    print(isDir)
+    # isDir = os.path.isdir("/oracle/instantclient_21_3")
+    # print(isDir)
     cx_Oracle.init_oracle_client(lib_dir="/oracle/instantclient_21_3")
 elif sys.platform.startswith('darwin'):
-    isDir = os.path.isdir("/Downloads/instantclient_19_8")
+    isDir = os.path.isdir("/Users/local/Downloads/instantclient_19_8")
     print(isDir)
     print("macOS")
-    cx_Oracle.init_oracle_client(lib_dir="/Downloads/instantclient_19_8")
+    cx_Oracle.init_oracle_client(lib_dir="~/Downloads/instantclient_19_8")
 elif sys.platform.startswith('linux'):
-    isDir = os.path.isdir("/oracle/instantclient_21_5")
-    print(isDir)
+    # isDir = os.path.isdir("/oracle/instantclient_21_5")
+    # print(isDir)
     cx_Oracle.init_oracle_client(lib_dir="/oracle/instantclient_21_5")
 else:
     print("Error with cx-Oracle file location")

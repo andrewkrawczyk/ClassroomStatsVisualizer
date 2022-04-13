@@ -1,1 +1,76 @@
+# Creating new environment for Visual Studio Code
+# ==========================================================================
+# Windows
+# --------------------------------------------------------------------------
+# py -3 -m venv .venv
+# .venv\scripts\activate
+
+# --------------------------------------------------------------------------
+# MacOS
+# --------------------------------------------------------------------------
+# python3 -m venv .venv
+# source .venv/bin/activate
+
+# ==========================================================================
+# Creating new environment for PyCharm
+# ==========================================================================
+# Python interpreter setting -> Cog wheel -> Add -> New
+# Or Bottom right click add interpreter
+# Use the following path
+# Python 3.9 directory
+
+# ==========================================================================
+# Required Packages for the virutal environment
+# ==========================================================================
+# Use the following command to install everything automatically
+# cd .\DjangoWebProject (this step is required for VSCode)
+# pip3 install -r requirements.txt
 django~=2.2
+cx-Oracle~=8.3.0
+django-tables2~=2.4.1
+pandas~=1.4.2
+pymysql~=1.0.2
+matplotlib~=3.5.1
+numpy~=1.22.3
+
+# ==========================================================================
+# Virtual Environment Setup using existing venv folder
+# Only use if we are uploading the folder to Git
+# ==========================================================================
+# Instruction for Visual Studio Code
+# --------------------------------------------------------------------------
+# Ctrl+Shift+P
+# Pythoh: Select Interpreter
+# Should have recommonded as the following
+# Pythong 3.9.10 ('venv':venv) .\venv\Scripts\python.exe
+# Change the terminal to cmd if you don't want to change user script
+# settings
+
+# --------------------------------------------------------------------------
+# Instructions for Pycharm
+# --------------------------------------------------------------------------
+# Python interpreter setting -> Cog wheel -> Add -> Existing
+# Or Bottom right click add interpreter
+# Use the following path
+# ~\ClassroomStatsVisualizer\venv\Scripts\python.exe
+
+# ==========================================================================
+# Install Oracle instant client for accessing databese
+# ==========================================================================
+# Instruction for Windows using version 21.3
+# --------------------------------------------------------------------------
+# Download the basic package from the following link
+# https://www.oracle.com/database/technologies/instant-client/downloads.html
+# Unzip and place in the following directory
+# C:\oracle\
+# Place the files from the google drive link in slack to
+# C:\oracle\instantclient_21_3\network\admin
+
+# --------------------------------------------------------------------------
+# Instruction for MacOS for version 19.8
+# --------------------------------------------------------------------------
+# Download the basic package from the following link
+# https://www.oracle.com/database/technologies/instant-client/downloads.html
+# Follow the instruction at the bottom for the correct version
+# Place the files from the google drive link in slack to
+# ~/Downloads/instantclient_19_8/network/admin

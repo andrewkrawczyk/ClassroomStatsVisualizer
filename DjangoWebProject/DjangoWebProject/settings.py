@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 import posixpath
+import sys
+import cx_Oracle
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_tables2',
 ]
 
 # Middleware framework
@@ -72,18 +75,37 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
+
+if sys.platform.startswith('win32'):
+    # isDir = os.path.isdir("/oracle/instantclient_21_3")
+    # print(isDir)
+    cx_Oracle.init_oracle_client(lib_dir="/oracle/instantclient_21_3")
+elif sys.platform.startswith('darwin'):
+    # isDir = os.path.isdir(os.path.expanduser("~/Downloads/instantclient_19_8"))
+    # print(isDir)
+    cx_Oracle.init_oracle_client(lib_dir=os.path.expanduser("~/Downloads/instantclient_19_8"))
+elif sys.platform.startswith('linux'):
+    # isDir = os.path.isdir("/oracle/instantclient_21_5")
+    # print(isDir)
+    cx_Oracle.init_oracle_client(lib_dir="/oracle/instantclient_21_5")
+else:
+    print("Error with cx-Oracle file location")
+    quit()
 
 WSGI_APPLICATION = 'DjangoWebProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'dbcsv_high',
+        'USER': 'admin',
+        'PASSWORD': 'CsV1C3N3031xld',
     }
 }
 

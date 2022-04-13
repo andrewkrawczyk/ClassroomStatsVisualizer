@@ -86,9 +86,8 @@ if sys.platform.startswith('win32'):
     # print(isDir)
     cx_Oracle.init_oracle_client(lib_dir="/oracle/instantclient_21_3")
 elif sys.platform.startswith('darwin'):
-    isDir = os.path.isdir(os.path.expanduser("~/Downloads/instantclient_19_8"))
-    print(isDir)
-    print("macOS")
+    # isDir = os.path.isdir(os.path.expanduser("~/Downloads/instantclient_19_8"))
+    # print(isDir)
     cx_Oracle.init_oracle_client(lib_dir=os.path.expanduser("~/Downloads/instantclient_19_8"))
 elif sys.platform.startswith('linux'):
     # isDir = os.path.isdir("/oracle/instantclient_21_5")

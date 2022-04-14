@@ -25,7 +25,9 @@ executors:
 
 jobs:
   build:
-    executor: python/productionVersion
+    executor:
+      name: productionVersion
+      tag: << parameters.version >>
     steps:
       - checkout
       - python/install-packages:

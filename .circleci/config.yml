@@ -16,9 +16,7 @@ executors:
 
 jobs:
   build:
-    executor:
-      name: default
-      tag: << parameters.version >>
+    executor: python/default
     steps:
       - checkout
       - python/install-packages:

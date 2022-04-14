@@ -26,7 +26,7 @@ executors:
 jobs:
   build:
     executor:
-      name: productionVersion
+      name: default
       tag: << parameters.version >>
     steps:
       - checkout

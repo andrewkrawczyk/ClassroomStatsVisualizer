@@ -17,9 +17,6 @@ executors:
 jobs:
   build:
     executor: python/default
-    parameters:
-      cache-version:
-        default: v2
     steps:
       - checkout
       - python/install-packages:

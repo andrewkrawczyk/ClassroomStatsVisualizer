@@ -3,11 +3,20 @@ version: 2.1
 orbs:
   python: circleci/python@2.0.3
 
+executors:
+    default:
+        description: The official CircleCI CIMG Python Docker image.
+        docker:
+            - image: cimg/python:<< parameters.tag >>
+        parameters:
+            tag:
+                default: "3.9"
+                description: The `cimg/python` Docker image version tag.
+                type: string
+
 jobs:
   build:
-    executor:
-      name: default
-      tag: "3.9"
+    executor: python/default
     steps:
       - checkout
       - python/install-packages:

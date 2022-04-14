@@ -10,7 +10,6 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
-          cache-version: << pipeline.parameters.cache-version >>
           app-dir: ~/project/DjangoWebProject
       - run:
           name: Test

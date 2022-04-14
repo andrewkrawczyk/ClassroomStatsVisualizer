@@ -5,7 +5,7 @@ orbs:
 
 jobs:
   build:
-    working_directory: ~/DjangoWebProject
+    app-dir: ~/DjangoWebProject
     executor: python/default
     steps:
       - checkout

@@ -5,7 +5,9 @@ orbs:
 
 jobs:
   build:
-    executor: python/3.9
+    executor:
+      name: default
+      tag: 3.9.10
     steps:
       - checkout
       - python/install-packages:

@@ -6,12 +6,14 @@ orbs:
 jobs:
   build:
     executor: python/default
+    environment:
+      PYTHONPATH=./DjangoWebProject
     steps:
       - checkout
       - python/install-packages:
           pkg-manager: pip
       - python/install-packages:
-          pip-dependency-file: ClassroomStatsVisualizer/DjangoWebProject/requirements.txt
+          pip-dependency-file: requirements.txt
           pkg-manager: pip
       - python/install-packages:
           args: pytest

@@ -9,6 +9,7 @@ jobs:
     steps:
       - checkout
       - python/install-packages:
+          version: 3.9.10
           pkg-manager: pip
           app-dir: ~/project/DjangoWebProject
       - run:

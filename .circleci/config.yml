@@ -15,7 +15,7 @@ jobs:
           name: Test
           working-dir: ~/project/DjangoWebProject
           command: |
-            pytest --version
+            python --version
 workflows:
   main:
     jobs:

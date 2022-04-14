@@ -6,23 +6,17 @@ orbs:
 jobs:
   build:
     executor: python/default
-    parameters:
-      app-dir: ~/DjangoWebProject
     steps:
       - checkout
       - python/install-packages:
           pkg-manager: pip
-      - python/install-packages:
-          pip-dependency-file: requirements.txt
-          pkg-manager: pip
-      - python/install-packages:
-          args: pytest
-          pkg-manager: pip
-          pypi-cache: false
+          cache-version: << pipeline.parameters.cache-version >>
+          app-dir: ~/project/DjangoWebProject
       - run:
+          name: Test
+          working-dir: ~/project/DjangoWebProject
           command: |
             pytest --version
-          name: Test
 workflows:
   main:
     jobs:

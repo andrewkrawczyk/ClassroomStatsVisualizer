@@ -1,5 +1,8 @@
 import pandas as pd
 
+from DjangoWebProject.TeacherApp.models import Teacher, Student, Dra, Ireadymath, Ireadyreading
+
+
 # ~~~~ CONFIGS ~~~~
 # Change to sort by whichever column you want
 sort_by = "CompScore"
@@ -7,8 +10,11 @@ sort_by = "CompScore"
 absence_factor = 0.95
 # Cap for number of absences
 absence_cap = 5
+
 # TODO holds original student data, change to pull from database
-mainDF = pd.read_csv("./test/testdata.csv")
+# student = Student.objects.all().filter(teacher=8861)
+# student
+mainDF = pd.read_csv("test/testdata.csv")
 
 
 def calc_score(dataDF =mainDF):
@@ -49,7 +55,6 @@ def calc_score(dataDF =mainDF):
 
 def change_value(student_id, col_name, new_value):  # TODO
     raise Exception("Function not implemented yet!")
-
 
 def add_student(student_name, student_id, ilearn1 = 0, ilearn2 = 0, attendance = 0, compscore = 0):  # TODO
     raise Exception("Function not implemented yet!")

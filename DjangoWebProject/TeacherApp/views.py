@@ -1,12 +1,11 @@
 """
 Definition of views.
 """
-
+import os
 from datetime import datetime
 from django.shortcuts import render
-from django.http import HttpRequest, HttpResponseRedirect
-from .models import Teacher, Student, Dra, Ireadymath, Ireadyreading
-from django.core import serializers
+from django.http import HttpRequest
+from .models import Teacher, Student
 
 
 def home(request):
@@ -55,13 +54,13 @@ def searchtest(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
 
+    os.system('python TeacherApp/source_/algorithm.py')
+
     if request.method == "POST":
         searched = request.POST['searched']
 
         if searched:
-            querydata = (Student.objects.filter(teacher=int(searched))).values('student_id', 'first_name',
-                                                                               'last_name', 'truancy',
-                                                                               'composite_score')
+            querydata = Student.objects.all().filter(teacher=8861)
         else:
             querydata = Teacher.objects.all()
 

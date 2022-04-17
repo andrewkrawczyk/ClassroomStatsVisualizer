@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.http import HttpRequest, HttpResponseRedirect
 from .models import Teacher, Student, Dra, Ireadymath, Ireadyreading
 from django.core import serializers
+from django.contrib.auth.forms import UserCreationForm
 
 
 def home(request):
@@ -48,6 +49,19 @@ def about(request):
             'message': 'All about CSV app',
             'year': datetime.now().year,
         }
+    )
+
+def register(request):
+    """Renders the teacher registration page."""
+    form = UserCreationForm()
+    return render(
+        request,        
+        'app/register.html',
+         {
+             'form': form,
+             'title': 'Register Today',
+             'year': datetime.now().year,
+         }
     )
 
 

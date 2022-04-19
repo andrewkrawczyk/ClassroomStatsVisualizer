@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>DjangoWebProject</Name>
     <RootNamespace>DjangoWebProject</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|myEnv|$(MSBuildProjectFullPath)</InterpreterId>
     <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup>
@@ -105,6 +105,7 @@
     <Content Include="TeacherApp\templates\app\layout.html" />
     <Content Include="TeacherApp\templates\app\login.html" />
     <Content Include="TeacherApp\templates\app\loginpartial.html" />
+    <Content Include="TeacherApp\templates\app\register.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">
@@ -116,6 +117,15 @@
       <Id>env</Id>
       <Version>3.9</Version>
       <Description>env (Python 3.9 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+    <Interpreter Include="myEnv\">
+      <Id>myEnv</Id>
+      <Version>3.9</Version>
+      <Description>myEnv (Python 3.9 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>

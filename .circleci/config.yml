@@ -1,0 +1,33 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@2.0.3
+
+executors:
+    default:
+        description: The official CircleCI CIMG Python Docker image.
+        docker:
+            - image: cimg/python:<< parameters.tag >>
+        parameters:
+            tag:
+                default: "3.9.10"
+                description: The `cimg/python` Docker image version tag.
+                type: string
+
+jobs:
+  build:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+          app-dir: ~/project/DjangoWebProject
+      - run:
+          name: Test
+          working-dir: ~/project/DjangoWebProject
+          command: |
+            python --version
+workflows:
+  main:
+    jobs:
+      - build

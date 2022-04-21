@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'TeacherApp',
     'django_tables2',
+    
     'Algorithm_Comp_Score',
 ]
 
@@ -141,6 +142,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+MEDIA_URL = '/images/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

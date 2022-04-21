@@ -1,8 +1,12 @@
 {% extends "app/layout.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
 
 {% block content %}
 
-<h2>{{ title }}</h2>
+
+ <h2>{{ title }}</h2>
 <h3>{{ message }}</h3>
 
 <p>
@@ -11,6 +15,6 @@
 
 <address>
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-</address>
+</address> 
 
 {% endblock %}

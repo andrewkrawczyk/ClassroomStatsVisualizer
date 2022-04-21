@@ -4,18 +4,22 @@ Definition of views.
 
 from datetime import datetime
 from django.shortcuts import render, redirect
-from django.http import HttpRequest, HttpResponseRedirect
+from django.http import HttpRequest, HttpResponse
 from .models import Teacher, Student, Dra, Ireadymath, Ireadyreading
 from django.core import serializers
 from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 #Create user view here
 from .models import *
 from .forms import CreateUserForm
-from django.contrib.auth import authenticate, login, logout
 
+
+@login_required(login_url='login')
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
@@ -23,13 +27,13 @@ def home(request):
         request,
         'app/index.html',
         {
-            'title': 'Home Page',
-            'message': 'Your one-stop shop for entering and retrieving student data',
+            'title': 'Welcome to your Home-page',
+            'message': 'Click on the SEARCH button to access classroom data',
             'year': datetime.now().year,
         }
     )
 
-
+@login_required(login_url='login')
 def contact(request):
     """Renders the contact page."""
     assert isinstance(request, HttpRequest)
@@ -43,7 +47,7 @@ def contact(request):
         }
     )
 
-
+@login_required(login_url='login')
 def about(request):
     """Renders the about page."""
     assert isinstance(request, HttpRequest)
@@ -52,7 +56,7 @@ def about(request):
         'app/about.html',
         {
             'title': 'About',
-            'message': 'All about CSV app',
+            'message': 'Our primary objective is to provide a convenient and comprehensive place for teachers to more easily manage a variety of student metrics that may normally be accessed among several different websites or programs.',
             'year': datetime.now().year,
         }
     )
@@ -62,13 +66,16 @@ def register(request):
     form = CreateUserForm()
 
     if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + user)
+        if request.user.is_authenticated:
+            return redirect('home')
+        else:
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Account was created for ' + user)
 
-            return redirect('login')
+                return redirect('login')
 
     context = {'form' :form}
     return render(request, 'app/register.html', context)
@@ -84,7 +91,7 @@ def register(request):
     # )
 def loginPage(request):
 	if request.user.is_authenticated:
-		return redirect('home')
+		return redirect('about')
 	else:
 		if request.method == 'POST':
 			username = request.POST.get('username')
@@ -96,7 +103,7 @@ def loginPage(request):
 				login(request, user)
 				return redirect('home')
 			else:
-				messages.info(request, 'Username OR password is incorrect')
+				messages.info(request, 'Username OR Password is incorrect')
 
 		context = {}
 		return render(request, 'app/login.html', context)
@@ -105,7 +112,7 @@ def logoutUser(request):
 	logout(request)
 	return redirect('login')
 
-
+@login_required(login_url='login')
 def searchtest(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)

@@ -25,6 +25,7 @@
 # Use the following command to install everything automatically
 # cd .\DjangoWebProject (this step is required)
 # pip3 install -r requirements.txt
+
 django~=4.0.4
 cx-Oracle~=8.3.0
 pandas~=1.4.2

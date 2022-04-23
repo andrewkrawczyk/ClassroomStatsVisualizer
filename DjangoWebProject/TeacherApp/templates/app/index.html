@@ -9,6 +9,34 @@
  <h2>{{ title }}</h2>
 <h3>{{ message }}</h3>
 
+<div class= "students">
+    {% for Student in students%}
+        <div class= "Student">
+            <h2><a href="#">{{Student.student_id}}    {{  Student.first_name}}, {{  Student.last_name}}</a></h2>
+            
+            <p>{{Student.composite_scoree}}
+        </div>
+    {%endfor%}
+</div>
+
+{% comment %} <div class= "reading">
+    {% for Ireadyreading in reading%}
+        <div class= "Ireadyreading">
+            <h2><a href="#">{{Ireadyreading.student}}    {{  Ireadyreading.score}}</a></h2>
+            
+        </div>
+    {%endfor%}
+</div>
+
+<div class= "math">
+    {% for Ireadymath in reading%}
+        <div class= "Ireadymath">
+            <h2><a href="#">{{Ireadymath.student}}    {{  Ireadymath.score}}</a></h2>
+            
+        </div>
+    {%endfor%}
+</div> {% endcomment %}
+
 <p>
     List More Info Here</a>
 </p>

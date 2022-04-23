@@ -29,6 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    
                 </button>
                 <a href="" class="navbar-brand">Classroom Stats Visualizer</a>
                 
@@ -46,11 +47,13 @@
                     {% csrf_token %}
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searched">
                     <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+                    <span class="hello-msg">Hello, {{request.user}}</span>
+                    <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+                    <li><a href="{% url 'Profile' %}">Profile</a></li>
                 </form>
-                <span class="hello-msg">Hello, {{request.user}}</span>
-                <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
                 
             </div>
+            
         </div>
 
         

@@ -1,0 +1,49 @@
+{% extends "app/layout.html" %}
+{% load crispy_forms_tags %} 
+
+
+{% block content %}
+<div class="content-section">
+  <div class="media">
+        <img class= "rounded-circle account-img" src="{{user.profile.image.url}}">
+
+        <div class="media-body">
+            <h2 class="account-heading">{{user.Username}}</h2>
+            <p class="text-secondary">{{user.email}}</p>
+            <p 'helllo home'</p>
+        </div>
+
+    </div>
+    <div class= "students">
+        {% for Student in students%}
+            <div class= "Student">
+                <h2><a href="#">{{Student.student_id}}    {{  Student.first_name}}, {{  Student.last_name}}</a></h2>
+                
+                <p>{{Student.composite_scoree}}
+            </div>
+        {%endfor%}
+    </div>
+
+    {% comment %} <div class= "reading">
+        {% for Ireadyreading in reading%}
+            <div class= "Ireadyreading">
+                <h2><a href="#">{{Ireadyreading.student}}    {{  Ireadyreading.score}}</a></h2>
+                
+            </div>
+        {%endfor%}
+    </div>
+
+    <div class= "math">
+        {% for Ireadymath in reading%}
+            <div class= "Ireadymath">
+                <h2><a href="#">{{Ireadymath.student}}    {{  Ireadymath.score}}</a></h2>
+                
+            </div>
+        {%endfor%}
+    </div> {% endcomment %}
+
+    <!--FORM HERE -->
+</div>
+
+{% endblock %}
+

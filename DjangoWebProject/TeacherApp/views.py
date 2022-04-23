@@ -16,22 +16,34 @@ from django.contrib.auth.decorators import login_required
 
 #Create user view here
 from .models import *
+from .models import Student
+from .models import Ireadymath
+from .models import Ireadyreading
 from .forms import CreateUserForm
+
 
 
 @login_required(login_url='login')
 def home(request):
+    students = Student.objects.all().order_by('student_id')
+    # math = Ireadymath.objects.all().order_by('student')
+    # reading = Ireadyreading.objects.all().order_by('student')
+    
+    
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/index.html',
         {
-            'title': 'Welcome to your Home-page',
-            'message': 'Click on the SEARCH button to access classroom data',
+            'title': 'Welcome Teacher',
+            'message': 'Student List for the School Term',
             'year': datetime.now().year,
+            'students':students, 
         }
     )
+    
+
 
 @login_required(login_url='login')
 def contact(request):
@@ -111,6 +123,20 @@ def loginPage(request):
 def logoutUser(request):
 	logout(request)
 	return redirect('login')
+
+@login_required(login_url='login')
+def Profile(request):
+    return render(
+        request,
+        'app/profile.html',
+        {
+            
+        }
+    )
+    
+    
+    
+   
 
 @login_required(login_url='login')
 def searchtest(request):

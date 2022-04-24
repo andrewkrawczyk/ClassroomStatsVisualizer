@@ -3,6 +3,8 @@ Definition of views.
 """
 
 from datetime import datetime
+
+from django.db.models import Max
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 from .models import Teacher, Student, Dra, Ireadymath, Ireadyreading
@@ -12,6 +14,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import F
 
 # Create user view here
 from .models import *
@@ -20,24 +23,27 @@ from .models import Ireadymath
 from .models import Ireadyreading
 from .forms import CreateUserForm
 
-
 # @login_required(login_url='login')
 def home(request):
-    # students = Student.objects.all().order_by('student_id')
-    # math = Ireadymath.objects.all().order_by('student')
-    # reading = Ireadyreading.objects.all().order_by('student')
-
     """Renders the home page."""
     if request.user.is_authenticated:
+        students = Student.objects.filter(teacher=request.user.id).order_by('student_id')
+        math = Ireadymath.objects.annotate(max_date=Max('student__ireadymath__entry_date')) \
+            .filter(entry_date=F('max_date')).filter(student__teacher__teacher_id=request.user.id).order_by('student')
+        reading = Ireadyreading.objects.annotate(max_date=Max('student__ireadyreading__entry_date')) \
+            .filter(entry_date=F('max_date')).filter(student__teacher__teacher_id=request.user.id).order_by('student')
+
         # assert isinstance(request, HttpRequest)
         return render(
             request,
             'app/index.html',
             {
-                'title': 'Welcome Teacher',
+                'title': 'Home',
                 'message': 'Student List for the School Term',
                 'year': datetime.now().year,
-                # 'students': students,
+                'students': students,
+                'math': math,
+                'reading': reading,
             }
         )
     else:
@@ -120,19 +126,8 @@ def register(request):
 
                 return redirect('login')
 
-    context = {'form': form}
+    context = {'form': form, 'title': 'Register'}
     return render(request, 'app/register.html', context)
-
-    # return render(
-    #     request,
-    #     'app/register.html',
-    #      {
-    #          'form': form,
-    #          'title': 'Register Today',
-    #          'year': datetime.now().year,
-    #      }
-    # )
-
 
 def loginPage(request):
     if request.user.is_authenticated:
@@ -150,7 +145,7 @@ def loginPage(request):
             else:
                 messages.info(request, 'Username OR Password is incorrect')
 
-        context = {}
+        context = {'title': 'Login'}
         return render(request, 'app/login.html', context)
 
 
@@ -168,44 +163,3 @@ def Profile(request):
 
         }
     )
-
-
-@login_required(login_url='login')
-def searchtest(request):
-    """Renders the home page."""
-    # assert isinstance(request, HttpRequest)
-
-    if request.method == "POST":
-        searched = request.POST['searched']
-
-        if searched:
-            querydata = (Student.objects.filter(teacher=int(searched))).values('student_id', 'first_name',
-                                                                               'last_name', 'truancy',
-                                                                               'composite_score')
-        else:
-            querydata = Teacher.objects.all()
-
-        return render(
-            request,
-            'app/test.html',
-            {
-                'title': 'Home Page',
-                'message': 'Your one-stop shop for entering and retrieving student data',
-                'year': datetime.now().year,
-                'searched': searched,
-                'querydata': querydata,
-            }
-        )
-    else:
-        querydata = Teacher.objects.all()
-
-        return render(
-            request,
-            'app/test.html',
-            {
-                'title': 'Home Page',
-                'message': 'Your one-stop shop for entering and retrieving student data',
-                'year': datetime.now().year,
-                'querydata': querydata,
-            }
-        )

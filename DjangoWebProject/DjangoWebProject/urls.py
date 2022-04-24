@@ -25,24 +25,9 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
-    # path('',
-    #      LoginView.as_view
-    #      (
-    #          template_name='app/login.html',
-    #          authentication_form=forms.BootstrapAuthenticationForm,
-    #          extra_context=
-    #          {
-    #              'title': 'Log in',
-    #              'year' : datetime.now().year,
-    #          }
-
-    #      ),
-    #      name='login'
-    #      ),
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name="logout"),
     path('admin/', admin.site.urls),
-    path('test/', views.searchtest, name="test"),
     path('register/', views.register, name='register'),
     path('profile/', views.Profile, name='Profile')
 ]

@@ -5,52 +5,69 @@
 {% block extra_head %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/index_style.css' %}"/>
+    {% load render_table from django_tables2 %}
 {% endblock %}
 
 {% block content %}
     {% if user.is_authenticated %}
-
-        <h2>{{ title }}</h2>
         <h3>{{ message }}</h3>
 
-        <div class="students">
-            {% for Student in students %}
-                <div class="Student">
-                    <h2><a href="#">{{ Student.student_id }} {{ Student.first_name }}, {{ Student.last_name }}</a></h2>
+        {#        {% render_table students %}#}
 
-                    <p>{{ Student.composite_scoree }}
-                </div>
-            {% endfor %}
+        <div class="tableWrapper">
+            <table class="styled-table">
+                <thead>
+                <tr class="columnTitle">
+                    <th>Profile Pic</th>
+                    <th>Student ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Truancy</th>
+                    <th>Composite Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for student in students %}
+                    <tr class="columnData">
+                        <td>Placeholder</td>
+                        <td>{{ student.student_id }}</td>
+                        <td>{{ student.first_name }}</td>
+                        <td>{{ student.last_name }}</td>
+                        <td>{{ student.truancy }}</td>
+                        <td>{{ student.composite_score }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
 
-        {% comment %}
-            <div class="reading">
-                {% for Ireadyreading in reading %}
-                    <div class="Ireadyreading">
-                        <h2><a href="#">{{ Ireadyreading.student }} {{ Ireadyreading.score }}</a></h2>
+        {#        <div class="students">#}
+        {#            {% for Student in students %}#}
+        {#                <div class="Student">#}
+        {#                    <h2><a href="#">{{ Student.student_id }} {{ Student.first_name }}, {{ Student.last_name }}</a></h2>#}
+        {##}
+        {#                    <p>{{ Student.composite_scoree }}#}
+        {#                </div>#}
+        {#            {% endfor %}#}
+        {#        </div>#}
 
-                    </div>
-                {% endfor %}
-            </div>
+        {#        <div class="reading">#}
+        {#            {% for Ireadyreading in reading %}#}
+        {#                <div class="Ireadyreading">#}
+        {#                    <h2><a href="#">{{ Ireadyreading.student }} {{ Ireadyreading.score }}</a></h2>#}
+        {##}
+        {#                </div>#}
+        {#            {% endfor %}#}
+        {#        </div>#}
 
-            <div class="math">
-                {% for Ireadymath in reading %}
-                    <div class="Ireadymath">
-                        <h2><a href="#">{{ Ireadymath.student }} {{ Ireadymath.score }}</a></h2>
-
-                    </div>
-                {% endfor %}
-            </div>
-        {% endcomment %}
-
-        <p>
-            List More Info Here
-        </p>
-
-        <address>
-            <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br/>
-        </address>
-
+        {#        <div class="math">#}
+        {#            {% for Ireadymath in math %}#}
+        {#                <div class="Ireadymath">#}
+        {#                    <h2><a href="#">{{ Ireadymath.student }} {{ Ireadymath.score }}</a></h2>#}
+        {##}
+        {#                </div>#}
+        {#            {% endfor %}#}
+        {#        </div>#}
     {% else %}
 
         <div class="problemStatement">

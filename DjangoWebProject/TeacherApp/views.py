@@ -29,7 +29,7 @@ def home(request):
 
     """Renders the home page."""
     if request.user.is_authenticated:
-        assert isinstance(request, HttpRequest)
+        # assert isinstance(request, HttpRequest)
         return render(
             request,
             'app/index.html',
@@ -41,7 +41,7 @@ def home(request):
             }
         )
     else:
-        assert isinstance(request, HttpRequest)
+        # assert isinstance(request, HttpRequest)
         return render(
             request,
             'app/index.html',
@@ -71,18 +71,15 @@ def home(request):
 
 def contact(request):
     """Renders the contact page."""
-    assert isinstance(request, HttpRequest)
+    # assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/contact.html',
         {
             'title': 'CEN 3031: Group 6',
-            # 'student': {'Andrew Krawczyk', 'Bayron Najera', 'Michael Deaver', 'Abdoul-Karim Konate'},
-            # 'role': {'Product Manager', 'Scrum Master', 'Dev Team Member', 'Dev team Member'},
-            # 'email': {'placeholder', 'placeholder', 'equationslay@ufl.edu', 'placeholder'},
             'students': [['Andrew Krawczyk', 'Product Manager', 'placeholder'],
                          ['Bayron Najera', 'Scrum Master', 'placeholder'],
-                         ['Michael Deaver', 'Dev Team Member', 'equationslay@ufl.edu'],
+                         ['Michael Deaver', 'Dev Team Member', 'placeholder'],
                          ['Abdoul-Karim Konate', 'Dev team Member', 'placeholder']],
             'year': datetime.now().year,
         }
@@ -91,7 +88,7 @@ def contact(request):
 
 def about(request):
     """Renders the about page."""
-    assert isinstance(request, HttpRequest)
+    # assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/about.html',
@@ -176,7 +173,7 @@ def Profile(request):
 @login_required(login_url='login')
 def searchtest(request):
     """Renders the home page."""
-    assert isinstance(request, HttpRequest)
+    # assert isinstance(request, HttpRequest)
 
     if request.method == "POST":
         searched = request.POST['searched']

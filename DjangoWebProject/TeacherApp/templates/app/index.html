@@ -6,19 +6,24 @@
 {% block content %}
 
 
- <h2>{{ title }}</h2>
-<h3>{{ message }}</h3>
+ <h1>{{ title }}</h1>
+<h2>{{ message }}</h2>
+<ul class="list-group">
+    <div class= "students">
+        
+        {% for Student in students%}
+            <li class="list-group-item">
+            <div class= "Student">
+                <h3><a href="">{{Student.student_id}} {{Student.first_name}}, {{  Student.last_name}}</a></h3>
+                
+                <p>{{Student.composite_scoree}}
+            </div>
+        </li>
+        {%endfor%}
+        <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit">Insert New Metrics</button>
 
-<div class= "students">
-    {% for Student in students%}
-        <div class= "Student">
-            <h2><a href="#">{{Student.student_id}}    {{  Student.first_name}}, {{  Student.last_name}}</a></h2>
-            
-            <p>{{Student.composite_scoree}}
-        </div>
-    {%endfor%}
-</div>
-
+    </div>
+ </ul>
 {% comment %} <div class= "reading">
     {% for Ireadyreading in reading%}
         <div class= "Ireadyreading">

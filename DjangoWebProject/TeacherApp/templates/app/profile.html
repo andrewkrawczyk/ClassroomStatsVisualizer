@@ -3,26 +3,28 @@
 
 
 {% block content %}
+
 <div class="content-section">
   <div class="media">
-        <img class= "rounded-circle account-img" src="{{user.profile.image.url}}">
-
+        <img class= "rounded-circle profile-img" src="{{user.profile.image.url}}">
+        <h1>Instructor: {{user.username}}</h1>
         <div class="media-body">
-            <h2 class="account-heading">{{user.Username}}</h2>
-            <p class="text-secondary">{{user.email}}</p>
+            <p class="text-secondary">Email: {{user.email}}</p>
             <p 'helllo home'</p>
         </div>
 
     </div>
-    <div class= "students">
-        {% for Student in students%}
-            <div class= "Student">
-                <h2><a href="#">{{Student.student_id}}    {{  Student.first_name}}, {{  Student.last_name}}</a></h2>
+   <div class= "reading">
+        {% for Ireadyreading in reading%}
+            <div class= "Ireadyreading">
+                <h2><a href="#">{{Ireadyreading.student}}    {{  Ireadyreading.score}}</a></h2>
                 
-                <p>{{Student.composite_scoree}}
             </div>
         {%endfor%}
     </div>
+
+    
+    
 
     {% comment %} <div class= "reading">
         {% for Ireadyreading in reading%}
@@ -45,5 +47,6 @@
     <!--FORM HERE -->
 </div>
 
+<h2>{{object.student_id}}</h2>
 {% endblock %}
 

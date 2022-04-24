@@ -26,20 +26,20 @@ from .forms import CreateUserForm
 @login_required(login_url='login')
 def home(request):
     students = Student.objects.all().order_by('student_id')
-    # math = Ireadymath.objects.all().order_by('student')
-    # reading = Ireadyreading.objects.all().order_by('student')
-    
-    
+    reading = Ireadyreading.objects.all().order_by('student')
+    math = Ireadymath.objects.all().order_by('student')
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/index.html',
         {
-            'title': 'Welcome Teacher',
+            'title': 'Welcome Teacher!',
             'message': 'Student List for the School Term',
             'year': datetime.now().year,
             'students':students, 
+            'reading':reading,
+            'math':math,
         }
     )
     
@@ -61,14 +61,19 @@ def contact(request):
 
 @login_required(login_url='login')
 def about(request):
+    message="Our primary objective is to provide a convenient and comprehensive place for teachers to more easily manage a variety of student metrics that may normally be accessed among several different websites or programs."
+    
+    new_message= message.center(20,".")
+    print(new_message)
+
     """Renders the about page."""
     assert isinstance(request, HttpRequest)
     return render(
         request,
         'app/about.html',
         {
-            'title': 'About',
-            'message': 'Our primary objective is to provide a convenient and comprehensive place for teachers to more easily manage a variety of student metrics that may normally be accessed among several different websites or programs.',
+            'title': 'About C.S.V',
+            "message": '',
             'year': datetime.now().year,
         }
     )
@@ -92,15 +97,7 @@ def register(request):
     context = {'form' :form}
     return render(request, 'app/register.html', context)
     
-    # return render(
-    #     request,        
-    #     'app/register.html',
-    #      {
-    #          'form': form,
-    #          'title': 'Register Today',
-    #          'year': datetime.now().year,
-    #      }
-    # )
+ 
 def loginPage(request):
 	if request.user.is_authenticated:
 		return redirect('about')
@@ -126,13 +123,8 @@ def logoutUser(request):
 
 @login_required(login_url='login')
 def Profile(request):
-    return render(
-        request,
-        'app/profile.html',
-        {
-            
-        }
-    )
+    s_data = Student.objects.filter(teacher=8861)
+    return render(request,'app/profile.html',)
     
     
     
@@ -177,3 +169,9 @@ def searchtest(request):
                 'querydata': querydata,
             }
         )
+def student_data(request):
+    s_data = Student.objects.filter(teacher=8861)
+    context = {
+       'object':s_data
+    }
+    return render(request, 'App/profile', {})

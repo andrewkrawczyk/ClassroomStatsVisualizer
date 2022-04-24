@@ -1,10 +1,17 @@
 {% extends "app/layout.html" %}
 
+{% block title %}About Us{% endblock %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/about_style.css' %}"/>
+{% endblock %}
+
 {% block content %}
 
-<h2>{{ title }}</h2>
-<h3>{{ message }}</h3>
-
-<p>Use this area to provide additional information.</p>
+    <div class="aboutMessage">
+        <h2>{{ title }}</h2>
+        <p>{{ message }}</p>
+    </div>
 
 {% endblock %}

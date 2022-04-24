@@ -1,65 +1,41 @@
-{% comment %} {% extends "app/layout.html" %}
-
-{% block content %}
-
-<h2>{{ title }}</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            <form action="." method="post" class="form-horizontal">
-                {% csrf_token %}
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div class="form-group">
-                    <label for="id_username" class="col-md-2 control-label">User name</label>
-                    <div class="col-md-10">
-                        {{ form.username }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="id_password" class="col-md-2 control-label">Password</label>
-                    <div class="col-md-10">
-                        {{ form.password }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="hidden" name="next" value="/" />
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-                {% if form.errors %}
-                <p class="validation-summary-errors">Please enter a correct user name and password.</p>
-                {% endif %}
-            </form>
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm"></section>
-    </div>
-</div>
-
-{% endblock %}
-
-
-{% block scripts %}
-
-    {% load staticfiles %}
-<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
-
-{% endblock %} {% endcomment %}
-
+{% comment %} {% extends "app/layout.html" %} {% endcomment %}
 <!DOCTYPE html>
 <html>
+{% block content %}
+
+{% comment %} <h2>{{ title }}</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="RegistrationForm">
+            <form method="post" action="">
+                {% csrf_token %}
+                <h4>Join Today</h4>
+                <hr />
+                <div class="form-group">
+                    <div class="col-md-10">
+                        {{ form.as_p}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default" type="submit">Sign Up </button>
+                    <div class="col-md-10">
+                    </div>
+            </form>
+            <div class="col-md-8">
+                <small class="text0-muted">
+                    Already have an account? <a href="{% url 'login' %}">Log in</a>
+                </small>
+        </section>
+    </div>
+</div> {% endcomment %}
 
 <head>
-	<title>Login</title>
+<title>Login</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
-
-	<style>
+    <style>
 		body,
 		html {
 			margin: 0;
@@ -90,9 +66,7 @@
 
 		#form-title{
 			color: #fff;
-
 		}
-
 		.login_btn {
 			width: 100%;
 			background: #33ccff !important;
@@ -117,16 +91,8 @@
 			outline: 0px !important;
 		}
 
-		#messages{
-			background-color: grey;
-			color: #fff;
-			padding: 10px;
-			margin-top: 10px;
-		}
-
-
-
 	</style>
+
 
 </head>
 <body>
@@ -134,49 +100,74 @@
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
 				<div class="d-flex justify-content-center">
-
-
-					<h3 id="form-title">Welcome to CSV! please LOGIN</h3>
+					<h3 id="form-title">CSV Teacher Registration</h3>
 				</div>
 				<div class="d-flex justify-content-center form_container">
+
 					<form method="POST" action="">
 						{% csrf_token %}
 						<div class="input-group mb-3">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-
-							<input type="text" name="username" placeholder="Username..." class="form-control">
+							{{form.username}}
 						</div>
-
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+							</div>
+							{{form.email}}
+						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-
-								<input type="password" name="password" placeholder="Password..." class="form-control" >
+							{{form.password1}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							{{form.password2}}
 						</div>
 
-							<div class="d-flex justify-content-center mt-3 login_container">
-				 				<input class="btn login_btn" type="submit" value="Login">
-				   			</div>
-					</form>
 
+
+				   		<div class="d-flex justify-content-center mt-3 login_container">
+				 			<input class="btn login_btn" type="submit" value="Register Account">
+				   		</div>
+
+					</form>
 				</div>
 
-				{% for message in messages %}
-					<p id="messages">{{message}}</p>
-				{% endfor %}
-
+				{{form.errors}}
+				
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+						Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
-</body>
+	<script>
+						/* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
+		//We start indexing at one because CSRF_token is considered and input field 
+		 */
 
+		//Query All input fields
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='Username..';
+		form_fields[2].placeholder='Email..';
+		form_fields[3].placeholder='Enter password...';
+		form_fields[4].placeholder='Re-enter Password...';
+
+
+		for (var field in form_fields){	
+			form_fields[field].className += ' form-control'
+		}
+	</script>
+</body>
 </html>
+
+{% endblock %}

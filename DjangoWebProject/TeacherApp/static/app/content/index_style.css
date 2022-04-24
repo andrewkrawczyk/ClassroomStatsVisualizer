@@ -1,0 +1,12 @@
+.problemStatement {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.solutionStatement {
+    padding-bottom: 65px;
+}
+
+.creationButton {
+    border-top: 1px solid rgba(0, 0, 0, 0.6);
+}

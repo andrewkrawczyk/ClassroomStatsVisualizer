@@ -1,16 +1,74 @@
 {% extends "app/layout.html" %}
 
+{% block title %}Home{% endblock %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/index_style.css' %}"/>
+{% endblock %}
+
 {% block content %}
+    {% if user.is_authenticated %}
 
-<h2>{{ title }}</h2>
-<h3>{{ message }}</h3>
+        <h2>{{ title }}</h2>
+        <h3>{{ message }}</h3>
 
-<p>
-    List More Info Here</a>
-</p>
+        <div class="students">
+            {% for Student in students %}
+                <div class="Student">
+                    <h2><a href="#">{{ Student.student_id }} {{ Student.first_name }}, {{ Student.last_name }}</a></h2>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-</address>
+                    <p>{{ Student.composite_scoree }}
+                </div>
+            {% endfor %}
+        </div>
 
+        {% comment %}
+            <div class="reading">
+                {% for Ireadyreading in reading %}
+                    <div class="Ireadyreading">
+                        <h2><a href="#">{{ Ireadyreading.student }} {{ Ireadyreading.score }}</a></h2>
+
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="math">
+                {% for Ireadymath in reading %}
+                    <div class="Ireadymath">
+                        <h2><a href="#">{{ Ireadymath.student }} {{ Ireadymath.score }}</a></h2>
+
+                    </div>
+                {% endfor %}
+            </div>
+        {% endcomment %}
+
+        <p>
+            List More Info Here
+        </p>
+
+        <address>
+            <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br/>
+        </address>
+
+    {% else %}
+
+        <div class="problemStatement">
+            <h2>{{ problem_statement }}</h2>
+            <p>{{ problem_message }}</p>
+        </div>
+
+        <div class="solutionStatement">
+            <h2>{{ solution_statement }}</h2>
+            <p>{{ solution_message }}</p>
+        </div>
+
+        <div class="text-center">
+            <h2>{{ account_creation }}</h2>
+            <hr class="creationButton">
+            <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Account Creation</a>
+        </div>
+
+
+    {% endif %}
 {% endblock %}

@@ -1,10 +1,10 @@
-.containerLogin {
+.container-login-style {
     display: flex;
     justify-content: center;
     padding-top: 100px;
 }
 
-.user_card {
+.user-card {
     width: 400px;
     margin-top: auto;
     margin-bottom: auto;
@@ -20,7 +20,7 @@
     border-radius: 5px;
 }
 
-.form_container {
+.container-form-style {
     margin-top: 10px;
 }
 
@@ -29,27 +29,27 @@
     text-align: center;
 }
 
-.login_btn {
+.btn-login-style {
     background: #31b0d5 !important;
     color: white !important;
 }
 
-.login_btn:focus {
+.btn-login-style:focus {
     box-shadow: none !important;
     outline: 0 !important;
 }
 
-.login_container {
+.row-login-style {
     padding-left: 1.5rem;
     padding-right: 1.25rem;
 }
 
-.register_container {
+.row-register-style {
     padding-left: 1.5rem;
     padding-right: 3.5rem;
 }
 
-.rowPass {
+.row-pass-style {
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -68,7 +68,7 @@
     padding: 2px 8px 2px 4px !important;
 }
 
-.signUp {
+.sign-up-style {
     padding-top: 10px;
     text-align: center;
 }

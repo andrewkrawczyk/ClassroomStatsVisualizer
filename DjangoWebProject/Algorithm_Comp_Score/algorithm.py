@@ -21,13 +21,11 @@ sort_by = "CompScore"
 absence_factor = 0.95
 # Cap for number of absences
 absence_cap = 5
-# TODO holds original student data
 dataDF = pd.read_csv('Algorithm_Comp_Score/test/testdata.csv')
 
 # Holds mean, sd
 statsDF = dataDF.describe()
 
-# TODO working dataframe
 adjDF = dataDF.copy()
 
 col_names = ["Reading", "Ilearn_1", "Ilearn_2"]

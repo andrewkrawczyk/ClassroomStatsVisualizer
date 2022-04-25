@@ -32,19 +32,7 @@
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">About Us</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
-
-                    {#                    {% comment %} <li><a href="{% url 'login' %}">Login</a></li>#}
-                    {#                    <li><a href="{% url 'register' %}">Register</a></li> {% endcomment %}#}
                 </ul>
-                {#                <form class="form-inline my-2 my-lg-0" method=POST action="{% url 'test' %}">#}
-                {#                    {% csrf_token %}#}
-                {#                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searched">#}
-                {#                    <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>#}
-                {#                    <span class="hello-msg">Hello, {{request.user}}</span>#}
-                {#                    <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>#}
-                {#                    <li><a href="{% url 'Profile' %}">Profile</a></li>#}
-                {#                </form>#}
-
                 {% include 'app/loginpartial.html' %}
             </div>
         </div>
@@ -62,9 +50,10 @@
 </footer>
 
 
-<script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
-<script src="{% static 'app/scripts/bootstrap.js' %}"></script>
+<script src="{% static 'app/scripts/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'app/scripts/bootstrap.min.js' %}"></script>
 <script src="{% static 'app/scripts/respond.js' %}"></script>
+<script src="{% static 'app/scripts/student-create-plugin.js' %}"></script>
 {% block scripts %}{% endblock %}
 
 </body>

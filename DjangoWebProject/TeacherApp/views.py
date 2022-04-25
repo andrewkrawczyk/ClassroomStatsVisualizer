@@ -3,31 +3,25 @@ Definition of views.
 """
 
 from datetime import datetime
-
-from django.db.models import Max
-from django.shortcuts import render, redirect
-from django.http import HttpRequest, HttpResponse
-from .models import Teacher, Student, Dra, Ireadymath, Ireadyreading
-from django.core import serializers
-from django.forms import inlineformset_factory
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.db.models import F
+from django.db.models import F, Max
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 
-# Create user view here
+from .forms import *
 from .models import *
-from .models import Student
-from .models import Ireadymath
-from .models import Ireadyreading
-from .forms import CreateUserForm
+
 
 # @login_required(login_url='login')
 def home(request):
     """Renders the home page."""
     if request.user.is_authenticated:
-        students = Student.objects.filter(teacher=request.user.id).order_by('student_id')
+        teacher = Teacher.objects.get(pk=request.user.id)
+        email = request.user.email
+        students = Student.objects.filter(teacher=request.user.id).all().order_by('student_id')
         math = Ireadymath.objects.annotate(max_date=Max('student__ireadymath__entry_date')) \
             .filter(entry_date=F('max_date')).filter(student__teacher__teacher_id=request.user.id).order_by('student')
         reading = Ireadyreading.objects.annotate(max_date=Max('student__ireadyreading__entry_date')) \
@@ -39,6 +33,8 @@ def home(request):
             'app/index.html',
             {
                 'title': 'Home',
+                'teacher_name': teacher.first_name + " " + teacher.last_name,
+                'teacher_email': email,
                 'message': 'Student List for the School Term',
                 'year': datetime.now().year,
                 'students': students,
@@ -129,6 +125,7 @@ def register(request):
     context = {'form': form, 'title': 'Register'}
     return render(request, 'app/register.html', context)
 
+
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('about')
@@ -154,12 +151,26 @@ def logoutUser(request):
     return redirect('login')
 
 
-@login_required(login_url='login')
-def Profile(request):
-    return render(
-        request,
-        'app/profile.html',
-        {
+def deleteStudent(request, student_id=None):
+    student = Student.objects.get(pk=student_id)
+    student.delete()
+    return redirect('home')
 
-        }
-    )
+
+def createStudent(request):
+    data = dict()
+
+    if request.method == 'POST':
+        form = CreateStudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            data['form_is_valid'] = True
+        else:
+            data['form_is_valid'] = False
+
+    else:
+        form = CreateStudentForm(initial={'teacher': request.user.id, 'composite_score': 0})
+
+    context = {'form': form}
+    data['html_form'] = render_to_string('app/student_create.html', context, request=request)
+    return JsonResponse(data)

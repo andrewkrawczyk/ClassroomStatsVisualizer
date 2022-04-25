@@ -10,13 +10,13 @@
 {% block content %}
 
     <h2>{{ title }}</h2>
-    <hr class="memberTitle">
+    <hr class="member-title">
 
     {% for Student in students %}
         <div>
-            <p class="memberName">{{ Student.0 }}</p>
+            <p class="member-name">{{ Student.0 }}</p>
             <p>Role: {{ Student.1 }}</p>
-            <p class="memberEmail">Email: {{ Student.2 }}</p>
+            <p class="member-email">Email: {{ Student.2 }}</p>
         </div>
     {% endfor %}
 {% endblock %}

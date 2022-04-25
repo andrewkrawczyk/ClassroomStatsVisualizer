@@ -56,7 +56,7 @@ def home(request):
                                    'they are spending more time deciphering the data instead of planning the next '
                                    'learning activity. This is also a problem for the students, since educators are '
                                    'less focus on catering to their learning.',
-                'solution_statement': 'Problem Statement',
+                'solution_statement': 'Solution Statement',
                 'solution_message': 'The goal of Classroom Stats Visualizer is to analyze and determine a performance '
                                     'metric for each student given the student’s grades. This performance metric will '
                                     'allow for teachers to quickly determine which students are in needed of '

@@ -34,18 +34,21 @@
 <p>
 <h4 align="left">Problem Statement</h4>
 
-K-12 educators need to be able to analyze large set of data gather from their classroom for determining the correct
-learning path for the class. Since the educators are currently looking at data from a table perspective, they are
-spending more time deciphering the data instead of planning the next learning activity. This is also a problem for the
-students, since educators are less focus on catering to their learning.
+K-12 educators need to be able to analyze a large set of data gathered from their 
+classroom for determining the correct learning path for the class. Since the educators 
+are currently looking at data from a table perspective, they are spending more time 
+deciphering the data instead of planning the next learning activity. This is also a 
+problem for the students, since educators are less focused on catering to their learning.
 
 <h4 align="left">Solution Statement</h4>
 
-The goal of Classroom Stats Visualizer is to analyze and determine a performance metric for each student given the
-student’s grades. This performance metric will allow for teachers to quickly determine which students are in needed of
-assistance. Also, Classroom Stats Visualizer will provide teachers with the ability to dive deeper into each individual
-student. This deep dive will display the student’s performance metric along with generate visual aids based on student
-grades over the semester.
+The goal of Classroom Stats Visualizer is to analyze and determine a performance 
+metric for each student given the student’s grades. This performance metric will 
+allow for teachers to quickly determine which students are in need of assistance. 
+Also, Classroom Stats Visualizer will provide teachers with the ability to dive 
+deeper into each individual student. This deep dive will display the student’s 
+performance metric along with generating visual aids based on student grades over 
+the semester.
     </p>
 
 </div>
@@ -99,8 +102,9 @@ grades over the semester.
 ### Prerequisites
 
 * Latest version of Python
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Installation For Visual Studio Code
+### Installation For Visual Studio Code (Windows)
 
 1. Clone the repo
    ```sh
@@ -138,6 +142,38 @@ grades over the semester.
    C:\oracle\instantclient_21_3\network\admin
    ```
    
+### Running App For Visual Studio Code (Windows)
+1Unzip and place in the following directory
+   ```sh
+   python manage.py runserver
+   ```
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Installation For Visual Studio Code (macOS)
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/andrewkrawczyk/ClassroomStatsVisualizer
+   ```
+2. Generate Virtual Environment (~/ClassroomStatsVisualizer)
+   ```sh
+   python3 -m venv .venv 
+   ```
+3. Activate Environment
+   ```sh
+   source .venv/bin/activate
+   ```
+4. Move Directory
+   ```sh
+   cd DjangoWebProject 
+   ```
+5. Install Requirements
+   ```sh
+   pip3 install -r requirements.txt
+   ```
+   
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Installation For Instant Client (macOS)
 1. Get a free Oracle wallet by emailing (blank)
 2. Download the basic package (version 19.8) from the following link:
@@ -150,8 +186,14 @@ grades over the semester.
    ```sh
    ~/Downloads/instantclient_19_8/network/admin
    ```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-
+### Running App For Visual Studio Code (macOS)
+1Unzip and place in the following directory
+   ```sh
+   python3 manage.py runserver
+   ```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -189,7 +231,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 CEN 3031: Group 6 - placeholder@comcast.net
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/andrewkrawczyk/ClassroomStatsVisualizer](https://github.com/github_username/repo_name)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

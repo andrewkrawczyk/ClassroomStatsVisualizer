@@ -1,16 +1,22 @@
 {% extends "app/layout.html" %}
 
+{% block title %}Contact{% endblock %}
+
+{% block extra_head %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/contact_style.css' %}"/>
+{% endblock %}
+
 {% block content %}
 
-<h2>{{ title }}</h2>
-<h3>{{ message }}</h3>
+    <h2>{{ title }}</h2>
+    <hr class="member-title">
 
-<P>
-    Room 505</a>
-</P>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-</address>
-
+    {% for Student in students %}
+        <div>
+            <p class="member-name">{{ Student.0 }}</p>
+            <p>Role: {{ Student.1 }}</p>
+            <p class="member-email">Email: {{ Student.2 }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}

@@ -1,0 +1,81 @@
+.container-login-style {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.user-card {
+    width: 400px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #74cfbf;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.container-form-style {
+    margin-top: 10px;
+}
+
+#form-title {
+    color: #ffffff;
+    text-align: center;
+}
+
+.btn-login-style {
+    background: #31b0d5 !important;
+    color: white !important;
+}
+
+.btn-login-style:focus {
+    box-shadow: none !important;
+    outline: 0 !important;
+}
+
+.row-login-style {
+    padding-left: 1.5rem;
+    padding-right: 1.25rem;
+}
+
+.row-register-style {
+    padding-left: 1.5rem;
+    padding-right: 3.5rem;
+}
+
+.row-pass-style {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.input-group-user {
+    background: #f7ba5b !important;
+    color: white !important;
+    font-size: 25px;
+    padding: 2px 8px 2px 4px !important;
+}
+
+.input-group-pass {
+    background: #f7ba5b !important;
+    color: white !important;
+    font-size: 25px;
+    padding: 2px 8px 2px 4px !important;
+}
+
+.sign-up-style {
+    padding-top: 10px;
+    text-align: center;
+}
+
+#messages {
+    background-color: grey;
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+}

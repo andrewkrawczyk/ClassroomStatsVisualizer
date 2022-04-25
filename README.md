@@ -143,7 +143,7 @@ the semester.
    ```
    
 ### Running App For Visual Studio Code (Windows)
-1Unzip and place in the following directory
+1. Unzip and place in the following directory
    ```sh
    python manage.py runserver
    ```
@@ -189,7 +189,7 @@ the semester.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Running App For Visual Studio Code (macOS)
-1Unzip and place in the following directory
+1. Unzip and place in the following directory
    ```sh
    python3 manage.py runserver
    ```

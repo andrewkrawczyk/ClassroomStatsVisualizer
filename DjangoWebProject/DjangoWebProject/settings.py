@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'TeacherApp',
     'django_tables2',
     'Algorithm_Comp_Score',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

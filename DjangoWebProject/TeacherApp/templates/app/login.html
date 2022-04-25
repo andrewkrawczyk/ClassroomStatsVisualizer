@@ -4,7 +4,6 @@
 
 {% block extra_head %}
     {% load static %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
           integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/login_style.css' %}"/>
@@ -12,44 +11,44 @@
 
 
 {% block content %}
-    <div class="container containerLogin">
+    <div class="container container-login-style">
         <div class="row">
             <div class="col">
-                <div class="user_card">
+                <div class="user-card">
                     <h3 id="form-title">Welcome to CSV! please LOGIN</h3>
-                    <div class="container form_container">
+                    <div class="container container-form-style">
                         <form method="POST" action="">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-1 col-sm-1 col-xs-1">
                                     <span class="input-group-user"><i class="fas fa-user"></i></span>
                                 </div>
-                                <div class="input-group col-md-10 col-sm-10 col-xs-10">
+                                <label class="input-group col-md-10 col-sm-10 col-xs-10">
                                     <input type="text" name="username" placeholder="Username..."
                                            class="form-control">
-                                </div>
+                                </label>
                             </div>
-                            <div class="row rowPass">
+                            <div class="row row-pass-style">
                                 <div class="col-md-1 col-sm-1 col-xs-1">
                                     <span class="input-group-pass"><i class="fas fa-key"></i></span>
                                 </div>
-                                <div class="input-group col-md-10 col-sm-10 col-xs-10">
+                                <label class="input-group col-md-10 col-sm-10 col-xs-10">
                                     <input type="password" name="password" placeholder="Password..."
                                            class="form-control">
-                                </div>
+                                </label>
                             </div>
-                            <div class="row login_container">
-                                <input class="btn btn-lg login_btn col-md-11 col-sm-11 col-xs-11" type="submit" value="Login">
+                            <div class="row row-login-style">
+                                <input class="btn btn-lg btn-login-style col-md-11 col-sm-11 col-xs-11" type="submit"
+                                       value="Login">
                             </div>
                         </form>
-
                     </div>
 
                     {% for message in messages %}
                         <p id="messages">{{ message }}</p>
                     {% endfor %}
 
-                    <div class="signUp">
+                    <div class="sign-up-style">
                         Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
                     </div>
                 </div>

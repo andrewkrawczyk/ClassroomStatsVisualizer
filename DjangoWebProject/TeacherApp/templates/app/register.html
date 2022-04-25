@@ -4,7 +4,6 @@
 
 {% block extra_head %}
     {% load static %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
           integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/login_style.css' %}"/>
@@ -12,12 +11,12 @@
 
 
 {% block content %}
-    <div class="container containerLogin">
+    <div class="container container-login-style">
         <div class="row">
             <div class="col">
-                <div class="user_card">
+                <div class="user-card">
                     <h3 id="form-title">CSV Teacher Registration</h3>
-                    <div class="container form_container">
+                    <div class="container container-form-style">
                         <form method="POST" action="">
                             {% csrf_token %}
                             <div class="row">
@@ -29,9 +28,9 @@
                                            class="form-control">
                                 </label>
                             </div>
-                            <div class="row rowPass">
+                            <div class="row row-pass-style">
                                 <div class="col-md-1 col-sm-1 col-xs-1">
-                                    <span class="input-group-pass"><i class="fas fa-envelope-square"></i></span>
+                                    <span class="input-group-pass"><i class="fas fa-file-signature"></i></span>
                                 </div>
                                 <label class="input-group col-md-10 col-sm-10 col-xs-10">
                                     <input type="fist_name" name="first_name" placeholder="First Name..."
@@ -40,14 +39,14 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-1 col-sm-1 col-xs-1">
-                                    <span class="input-group-pass"><i class="fas fa-envelope-square"></i></span>
+                                    <span class="input-group-pass"><i class="fas fa-file-signature"></i></span>
                                 </div>
                                 <label class="input-group col-md-10 col-sm-10 col-xs-10">
                                     <input type="last_name" name="last_name" placeholder="Last Name..."
                                            class="form-control">
                                 </label>
                             </div>
-                            <div class="row rowPass">
+                            <div class="row row-pass-style">
                                 <div class="col-md-1 col-sm-1 col-xs-1">
                                     <span class="input-group-pass"><i class="fas fa-envelope-square"></i></span>
                                 </div>
@@ -65,7 +64,7 @@
                                            class="form-control">
                                 </label>
                             </div>
-                            <div class="row rowPass">
+                            <div class="row row-pass-style">
                                 <div class="col-md-1 col-sm-1 col-xs-1">
                                     <span class="input-group-pass"><i class="fas fa-key"></i></span>
                                 </div>
@@ -74,8 +73,8 @@
                                            class="form-control">
                                 </label>
                             </div>
-                            <div class="row register_container">
-                                <input class="btn login_btn col-md-4 col-sm-4 col-xs-4" type="submit"
+                            <div class="row row-register-style">
+                                <input class="btn btn-login-style col-md-4 col-sm-4 col-xs-4" type="submit"
                                        value="Register Account" style="font-size: large">
                             </div>
                         </form>
@@ -84,7 +83,7 @@
 
                     {{ form.errors }}
 
-                    <div class="signUp">
+                    <div class="sign-up-style">
                         Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
                     </div>
                 </div>

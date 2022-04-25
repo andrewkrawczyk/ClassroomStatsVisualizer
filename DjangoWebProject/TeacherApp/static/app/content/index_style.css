@@ -1,56 +1,70 @@
-.problemStatement {
+.problem-statement {
     padding-top: 25px;
     padding-bottom: 25px;
 }
 
-.solutionStatement {
+.solution-statement {
     padding-bottom: 65px;
 }
 
-.creationButton {
+.btn-creation-style {
     border-top: 1px solid rgba(0, 0, 0, 0.6);
 }
 
-.tableWrapper {
+.wrapper-table-style {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.styled-table {
+.table-style {
     border-collapse: collapse;
     margin: 25px 0;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
 }
 
-.styled-table thead tr {
+.table-style thead tr {
     background-color: #008ac5;
     color: #ffffff;
     text-align: left;
 }
 
-.styled-table th,
-.styled-table td {
+.table-style th,
+.table-style td {
     padding: 12px 15px;
 }
 
-.styled-table tbody tr {
+.table-style tbody tr {
     border-bottom: 2px solid #dddddd;
 }
 
-.styled-table tbody tr:nth-of-type(even) {
+.table-style tbody tr:nth-of-type(even) {
     background-color: #e4effb;
 }
 
-.styled-table tbody tr:last-of-type {
+.table-style tbody tr:last-of-type {
     border-bottom: 2px solid #008ac5;
 }
 
-.columnTitle {
+.column-title {
     text-align: center;
 }
 
-.columnData {
+.column-data {
     text-align: center;
+    cursor: pointer;
+}
+
+.button-row {
+    height: 10vh;
+}
+
+.btn-add-student {
+    padding-top: 30px;
+}
+
+.form-student-info {
+  margin: auto;
+  padding: 6px;
 }

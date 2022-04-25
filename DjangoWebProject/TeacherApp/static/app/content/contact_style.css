@@ -1,11 +1,11 @@
-.memberTitle {
+.member-title {
     border-top: 1px solid rgba(0, 0, 0, 0.6);
 }
 
-.memberName {
+.member-name {
     font-size: 18px;
 }
 
-.memberEmail {
+.member-email {
     padding-bottom: 25px;
 }

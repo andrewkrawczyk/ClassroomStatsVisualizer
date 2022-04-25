@@ -1,0 +1,69 @@
+.problem-statement {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.solution-statement {
+    padding-bottom: 65px;
+}
+
+.btn-creation-style {
+    border-top: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.wrapper-table-style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-style {
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.table-style thead tr {
+    background-color: #008ac5;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table-style th,
+.table-style td {
+    padding: 12px 15px;
+}
+
+.table-style tbody tr {
+    border-bottom: 2px solid #dddddd;
+}
+
+.table-style tbody tr:nth-of-type(even) {
+    background-color: #e4effb;
+}
+
+.table-style tbody tr:last-of-type {
+    border-bottom: 2px solid #008ac5;
+}
+
+.column-title {
+    text-align: center;
+}
+
+.column-data {
+    text-align: center;
+}
+
+.button-row {
+    height: 10vh;
+}
+
+.btn-add-student {
+    padding-top: 30px;
+}
+
+.form-student-info {
+  margin: auto;
+  padding: 6px;
+}

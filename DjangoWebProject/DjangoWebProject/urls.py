@@ -13,30 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from TeacherApp import views
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import path, include
-from datetime import datetime
-from TeacherApp import forms, views
+from django.urls import path, re_path
 
 urlpatterns = [
-    path('home/', views.home, name='home'),
+    path('', views.home, name='home'),
     path('contact/', views.contact, name='contact'),
     path('about/', views.about, name='about'),
-    path('',
-         LoginView.as_view
-         (
-             template_name='app/login.html',
-             authentication_form=forms.BootstrapAuthenticationForm,
-             extra_context=
-             {
-                 'title': 'Log in',
-                 'year' : datetime.now().year,
-             }
-         ),
-         name='login'),
-    path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
+    path('login/', views.loginPage, name='login'),
+    path('logout/', views.logoutUser, name="logout"),
     path('admin/', admin.site.urls),
-    path('test/', views.searchtest, name="test"),
     path('register/', views.register, name='register'),
+    path('student/create/', views.createStudent, name='create_student'),
+    re_path(r'^delete/(?P<student_id>[0-9]+)/$', views.deleteStudent, name='delete_view'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

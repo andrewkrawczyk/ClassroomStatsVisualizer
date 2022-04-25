@@ -32,6 +32,7 @@ pymysql~=1.0.2
 numpy~=1.22.3
 matplotlib~=3.5.1
 django-tables2~=2.4.1
+django-widget-tweaks~=1.4.12
 
 # ==========================================================================
 # Virtual Environment Setup using existing venv folder

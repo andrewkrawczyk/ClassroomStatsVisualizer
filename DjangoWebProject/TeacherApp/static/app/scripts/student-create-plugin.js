@@ -31,4 +31,8 @@ $(function () {
         });
         return false;
     });
+
+    $('#student-modal').on('hidden.bs.modal', function (){
+        window.location.reload(true);
+    });
 });
